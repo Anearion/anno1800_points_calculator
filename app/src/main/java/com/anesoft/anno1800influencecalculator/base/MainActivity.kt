@@ -19,12 +19,17 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val view = binding.root
         setContentView(view)
         setSupportActionBar(binding.toolbar)
-        //setupNavigation()
+        setupNavigation()
+        setHomeFragment();
+    }
+
+    private fun setHomeFragment() {
+
     }
 
 
     private fun setupNavigation() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        //NavigationUI.setupWithNavController(binding.bttmNav, navHostFragment.navController)
+        /*val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        NavigationUI.setupWithNavController(binding.bttmNav, navHostFragment.navController)*/
     }
 }

@@ -21,11 +21,12 @@ abstract class BaseFragment<VB : ViewBinding>(contentLayoutId: Int) : Fragment(c
         savedInstanceState: Bundle?
     ): View? {
         _binding = bindingInflater.invoke(inflater, container, false)
-        return requireNotNull(_binding).root
+        return (_binding as VB).root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setup()
     }
 

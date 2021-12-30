@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/games">
+    app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/games"
+        android:id="@+id/home"
         android:name="com.anesoft.anno1800influencecalculator.usecase.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
