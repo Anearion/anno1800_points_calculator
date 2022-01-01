@@ -16,6 +16,16 @@
         android:id="@+id/players"
         android:name="com.anesoft.anno1800influencecalculator.usecase.players.PlayersFragment"
         android:label="fragment_players"
-        tools:layout="@layout/fragment_players" />
+        tools:layout="@layout/fragment_players" >
+        <action
+            android:id="@+id/action_players_to_navigation_create_player"
+            app:destination="@id/navigation_create_player" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_create_player"
+        android:name="com.anesoft.anno1800influencecalculator.usecase.players.CreatePlayerFragment"
+        android:label="fragment_create_player"
+        tools:layout="@layout/fragment_create_player" />
 
 </navigation>
