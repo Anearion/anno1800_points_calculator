@@ -40,11 +40,6 @@ class PlayersFragment : BaseFragment<FragmentPlayersBinding, PlayersViewModel>()
         }
 
         viewModel.playersLiveData.observe(viewLifecycleOwner, {
-            it.forEach { v ->
-                Toast.makeText(context, v.name!!, Toast.LENGTH_SHORT).show()
-                Timber.d("Player: %s", v.name)
-
-            }
             populatePlayerRecyclerView(it)
         })
 

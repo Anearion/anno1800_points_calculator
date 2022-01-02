@@ -17,6 +17,8 @@ data class Score(
     @ColumnInfo(name = "obj_three_point") val thirdObjPoints: Int,
     @ColumnInfo(name = "obj_four_point") val fourthObjPoints: Int,
     @ColumnInfo(name = "obj_five_point") val fifthObjPoints: Int,
+    @ColumnInfo(name = "gameId") val gameId: Int,
+    @ColumnInfo(name = "playerId") val playerId: Int
 ) : BaseEntity() {
 
 }
