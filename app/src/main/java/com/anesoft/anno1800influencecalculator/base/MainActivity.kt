@@ -17,7 +17,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.anesoft.anno1800influencecalculator.R
 import com.anesoft.anno1800influencecalculator.databinding.ActivityMainBinding
 import com.anesoft.anno1800influencecalculator.usecase.players.PlayersFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 

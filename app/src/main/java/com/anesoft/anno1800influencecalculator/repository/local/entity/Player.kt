@@ -6,8 +6,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "player")
-data class Player (
-    @PrimaryKey val id: Int,
-    @ColumnInfo(name = "first_name") val name: String?,
-    @ColumnInfo(name = "gender") val gender: String?
-    )
+data class Player(@ColumnInfo(name = "first_name") val name: String?,
+                  @ColumnInfo(name = "gender") val gender: String?) : BaseEntity() {
+
+}

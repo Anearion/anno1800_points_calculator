@@ -5,6 +5,8 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
+import dagger.Provides
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -21,5 +23,8 @@ interface PlayerDao {
 
     @Delete
     fun delete(player: Player)
+
+    @Query("DELETE FROM Player")
+    suspend fun deleteAll()
 
 }
