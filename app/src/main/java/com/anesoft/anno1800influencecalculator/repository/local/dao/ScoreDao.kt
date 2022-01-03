@@ -11,13 +11,8 @@ interface ScoreDao {
     @Query("SELECT * FROM Score")
     suspend fun getAll() : List<Score>
 
-    @MapInfo(keyColumn = "gameId")
-    @Query("SELECT DISTINCT * FROM Score GROUP BY Score.gameId")
-    suspend fun getAllGroupByGame() : Map<Int,List<Score>>
-
-    @MapInfo(keyColumn = "gameId")
-    @Query("SELECT * FROM Score GROUP BY Score.gameId")
-    fun getAllObservable() : Flow<Map<Int,List<Score>>>
+    @Query("SELECT * FROM Score")
+    fun getAllObservable() : Flow<List<Score>>
 
     @Query("SELECT * FROM Score WHERE Score.gameId = :gameId")
     fun getScoreHistoryForGame(gameId: Int) : Flow<List<Score>>

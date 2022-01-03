@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verticalGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+    <TextView
+        android:id="@+id/tvNumberOfCard1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_three_points_card_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etNumberOfCard1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumberOfCard1" />
+
+    <TextView
+        android:id="@+id/tvNumberOfCard2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_five_points_card_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNumberOfCard1" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etNumberOfCard2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumberOfCard2" />
+
+    <TextView
+        android:id="@+id/tvNumberOfCard3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_eight_points_card_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNumberOfCard2" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etNumberOfCard3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumberOfCard3" />
+
+    <TextView
+        android:id="@+id/tvExpedition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_expedition_points"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNumberOfCard3" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etExpedition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExpedition" />
+
+    <TextView
+        android:id="@+id/tvFireworks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_fireworks_points"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etExpedition" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etFireworks"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFireworks" />
+
+    <TextView
+        android:id="@+id/tvMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_money_points"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etFireworks" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etMoney"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMoney" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

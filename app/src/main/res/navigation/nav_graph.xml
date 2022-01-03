@@ -10,6 +10,16 @@
         android:name="com.anesoft.anno1800influencecalculator.usecase.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_navigation_save_game"
+            app:destination="@id/navigation_save_game" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_save_game"
+        android:name="com.anesoft.anno1800influencecalculator.usecase.savegame.SaveGameFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_save_game" >
     </fragment>
 
     <fragment
@@ -24,8 +34,18 @@
 
     <fragment
         android:id="@+id/navigation_create_player"
-        android:name="com.anesoft.anno1800influencecalculator.usecase.players.CreatePlayerFragment"
+        android:name="com.anesoft.anno1800influencecalculator.usecase.createplayer.CreatePlayerFragment"
         android:label="fragment_create_player"
         tools:layout="@layout/fragment_create_player" />
+
+    <dialog
+        android:id="@+id/navigation_select_player_bottomsheet"
+        android:name="com.anesoft.anno1800influencecalculator.uicomponents.SelectPlayersBottomSheet"
+        tools:layout="@layout/fragment_select_players_bottom_sheet_list_dialog" />
+
+    <dialog
+        android:id="@+id/navigation_player_score_bottomsheet"
+        android:name="com.anesoft.anno1800influencecalculator.uicomponents.PlayerScoreBottomSheet"
+        tools:layout="@layout/fragment_player_score" />
 
 </navigation>

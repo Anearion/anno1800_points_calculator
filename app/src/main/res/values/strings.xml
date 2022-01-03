@@ -6,4 +6,32 @@
     <string name="female">Female</string>
     <string name="male">Male</string>
     <string name="save">Save</string>
+    <string name="select_players">Select players</string>
+    <string name="save_points_instructions">Tap on each player to insert points</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="done">DONE</string>
+    <string name="label_three_points_card_number">Fill with number of 3 points cards:</string>
+    <string name="label_five_points_card_number">Fill with number of 5 points cards:</string>
+    <string name="label_eight_points_card_number">Fill with number of 8 points cards:</string>
+    <string name="label_expedition_points">Expedition points:</string>
+    <string name="label_fireworks_points">Fireworks points:</string>
+    <string name="label_money_points">Money points:</string>
+    <string name="label_first_obj_points">First objective points:</string>
+    <string name="label_second_obj_points">Second objective points:</string>
+    <string name="label_third_obj_points">Third objective points:</string>
+    <string name="label_fourth_obj_points">Fourth objective points:</string>
+    <string name="label_fifth_obj_points">Fifth objective points:</string>
 </resources>

@@ -19,6 +19,8 @@ class PlayersViewModel @Inject constructor(private val playerRepository: PlayerR
     private var _playersLiveData : MutableLiveData<List<Player>> = MutableLiveData()
     val playersLiveData : LiveData<List<Player>> get() = _playersLiveData
 
+    var selectedPlayers = mutableListOf<String>()
+
     fun savePlayer(p: Player) {
         viewModelScope.launch {
             playerRepository.savePlayer(p)
@@ -45,6 +47,10 @@ class PlayersViewModel @Inject constructor(private val playerRepository: PlayerR
             }
         }
 
+    }
+
+    fun addSelectedPlayer(text: String) {
+        selectedPlayers.add(text)
     }
 
 

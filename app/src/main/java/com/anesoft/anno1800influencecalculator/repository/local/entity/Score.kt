@@ -21,4 +21,5 @@ data class Score(
     @ColumnInfo(name = "playerId") val playerId: Int
 ) : BaseEntity() {
 
+
 }

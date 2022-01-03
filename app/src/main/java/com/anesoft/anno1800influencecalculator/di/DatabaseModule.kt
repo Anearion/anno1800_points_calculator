@@ -16,7 +16,7 @@ import javax.inject.Singleton
 class DatabaseModule {
 
     @Provides
-    fun providePlayerDao(appAppDatabase: AppDatabase) : PlayerDao{
+    fun providePlayerDao(appAppDatabase: AppDatabase): PlayerDao {
         return appAppDatabase.playerDao()
     }
 
@@ -27,8 +27,7 @@ class DatabaseModule {
             appContext,
             AppDatabase::class.java,
             "RssReader"
-        )
-            .fallbackToDestructiveMigration()
+        ).fallbackToDestructiveMigration()
             .build()
     }
 }

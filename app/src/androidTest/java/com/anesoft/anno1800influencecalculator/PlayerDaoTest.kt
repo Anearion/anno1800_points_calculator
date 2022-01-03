@@ -56,7 +56,7 @@ class PlayerDaoTest {
 
         val player2 = Player(
             name = "Fede",
-            gender = "male"
+            gender = "female"
         )
 
         playerDao.insertAll(player, player2)
@@ -64,7 +64,7 @@ class PlayerDaoTest {
         val playerRes2 = playerDao.getByName("Fede")
 
         val score1 = createDummyScore(playerRes1, 1)
-        val score2 = createDummyScore(playerRes2, 1)
+        val score2 = createHighDummyScore(playerRes2, 1)
         val score3 = createDummyScore(playerRes2, 2)
 
         scoreDao.insert(score1)
@@ -77,8 +77,8 @@ class PlayerDaoTest {
         val scoreResult1 = scoreDao.getAll()
         assertThat(scoreResult1.size, `is`(3))
 
-        val allScore = scoreDao.getAllGroupByGame()
-        assertThat(allScore[1], contains(score1))
+        val map = scoreResult1.groupBy { it.gameId }
+        assertThat(map.keys.size, `is`(2))
     }
 
     private fun createDummyScore(playerRes1: Player, gameId : Int): Score {
@@ -86,6 +86,25 @@ class PlayerDaoTest {
             10,
             5,
             4,
+            8,
+            2,
+            7,
+            0,
+            3,
+            4,
+            5,
+            3,
+            gameId,
+            playerRes1.id
+        )
+        return score
+    }
+
+    private fun createHighDummyScore(playerRes1: Player, gameId : Int): Score {
+        val score = Score(
+            10,
+            10,
+            10,
             8,
             2,
             7,

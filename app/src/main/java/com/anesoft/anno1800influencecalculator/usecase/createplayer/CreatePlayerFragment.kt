@@ -1,18 +1,14 @@
-package com.anesoft.anno1800influencecalculator.usecase.players
+package com.anesoft.anno1800influencecalculator.usecase.createplayer
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.RadioGroup
 import com.anesoft.anno1800influencecalculator.base.BaseFragment
 import com.anesoft.anno1800influencecalculator.databinding.FragmentCreatePlayerBinding
 import android.widget.RadioButton
-import android.widget.Toast
-import androidx.lifecycle.Observer
 import com.anesoft.anno1800influencecalculator.R
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
+import com.anesoft.anno1800influencecalculator.usecase.players.PlayersViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class CreatePlayerFragment : BaseFragment<FragmentCreatePlayerBinding, PlayersViewModel>() {

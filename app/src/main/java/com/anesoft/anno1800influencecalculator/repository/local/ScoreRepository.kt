@@ -12,7 +12,7 @@ class ScoreRepository @Inject constructor(private val scoreDao: ScoreDao){
         return scoreDao.getAll()
     }
 
-    fun getAllPlayersFlow() : Flow<Map<Int, List<Score>>> {
+    fun getAllPlayersFlow() : Flow<List<Score>> {
         return scoreDao.getAllObservable()
     }
 
