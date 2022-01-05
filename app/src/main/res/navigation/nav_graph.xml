@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/home"
         android:name="com.anesoft.anno1800influencecalculator.usecase.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="Games"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_home_to_navigation_save_game"
@@ -18,14 +18,14 @@
     <fragment
         android:id="@+id/navigation_save_game"
         android:name="com.anesoft.anno1800influencecalculator.usecase.savegame.SaveGameFragment"
-        android:label="fragment_home"
+        android:label="Save Game"
         tools:layout="@layout/fragment_save_game" >
     </fragment>
 
     <fragment
         android:id="@+id/players"
         android:name="com.anesoft.anno1800influencecalculator.usecase.players.PlayersFragment"
-        android:label="fragment_players"
+        android:label="Players"
         tools:layout="@layout/fragment_players" >
         <action
             android:id="@+id/action_players_to_navigation_create_player"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/navigation_create_player"
         android:name="com.anesoft.anno1800influencecalculator.usecase.createplayer.CreatePlayerFragment"
-        android:label="fragment_create_player"
+        android:label="Create Player"
         tools:layout="@layout/fragment_create_player" />
 
     <dialog

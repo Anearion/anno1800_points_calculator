@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.anesoft.anno1800influencecalculator.R
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
@@ -33,6 +34,7 @@ class PlayerNameAdapter() :
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.name)
+        val row: ConstraintLayout = view.findViewById(R.id.container)
 
     }
 
@@ -47,7 +49,7 @@ class PlayerNameAdapter() :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.textView.text = dataSet[position].name
         if(clickEnable)
-            viewHolder.textView.setOnClickListener { listener.onClick(dataSet[position]) }
+            viewHolder.row.setOnClickListener { listener.onClick(dataSet[position]) }
     }
 
     override fun getItemCount() = dataSet.size

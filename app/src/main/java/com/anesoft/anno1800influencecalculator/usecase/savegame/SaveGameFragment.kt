@@ -30,14 +30,15 @@ class SaveGameFragment : BaseFragment<FragmentSaveGameBinding, SaveGameViewModel
 
     override fun update(savedInstanceState: Bundle?) {
 
+        adapter = PlayerNameAdapter()
+        adapter.enableOnClickListener(listener)
+        binding.rvSelectedPlayers.adapter = adapter
+
         binding.rvSelectedPlayers.layoutManager = LinearLayoutManager(context)
 
         setFragmentResultListener(SelectPlayersBottomSheet.REQUEST_KEY) { key, bundle ->
             val list = bundle["data"] as List<String>
             list.forEach{ t -> viewModel.getPlayerByName(t) }
-            adapter = PlayerNameAdapter()
-            adapter.enableOnClickListener(listener)
-            binding.rvSelectedPlayers.adapter = adapter
         }
 
         viewModel.playersLiveData.observe(
