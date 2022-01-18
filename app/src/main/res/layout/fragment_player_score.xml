@@ -15,108 +15,127 @@
         app:layout_constraintGuide_percent="0.5" />
 
 
-    <TextView
-        android:id="@+id/tvNumberOfCard1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/label_three_points_card_number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etNumberOfCard1"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/threePointsContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+        android:layout_margin="@dimen/small"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumberOfCard1" />
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline">
 
-    <TextView
-        android:id="@+id/tvNumberOfCard2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/label_five_points_card_number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNumberOfCard1" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/threePointsET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_three_points_card_number"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/dark_gray" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etNumberOfCard2"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fivePointsContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumberOfCard2" />
+        android:layout_margin="@dimen/small"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline">
 
-    <TextView
-        android:id="@+id/tvNumberOfCard3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/label_eight_points_card_number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNumberOfCard2" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fivePointsET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_five_points_card_number"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/dark_gray" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etNumberOfCard3"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/eightPointsContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+        android:layout_margin="@dimen/small"
+        app:layout_constraintTop_toBottomOf="@+id/threePointsContainer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumberOfCard3" />
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline">
 
-    <TextView
-        android:id="@+id/tvExpedition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/label_expedition_points"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNumberOfCard3" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/eightPointsET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_eight_points_card_number"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/dark_gray" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etExpedition"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expeditionPointsContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvExpedition" />
+        android:layout_margin="@dimen/small"
+        app:layout_constraintTop_toBottomOf="@+id/fivePointsContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline">
 
-    <TextView
-        android:id="@+id/tvFireworks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/label_fireworks_points"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etExpedition" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expeditionePointsET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_expedition_points"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/dark_gray" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etFireworks"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fireworksPointsContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+        android:layout_margin="@dimen/small"
+        app:layout_constraintTop_toBottomOf="@+id/eightPointsContainer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFireworks" />
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline">
 
-    <TextView
-        android:id="@+id/tvMoney"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/label_money_points"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etFireworks" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fireworksPointsET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_fireworks_points"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/dark_gray" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etMoney"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/moneyPointsContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
+        android:layout_margin="@dimen/small"
+        app:layout_constraintTop_toBottomOf="@+id/expeditionPointsContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/moneyPointsET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_money_points"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/dark_gray" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/confirm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMoney" />
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fireworksPointsContainer"
+        android:text="@string/done" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

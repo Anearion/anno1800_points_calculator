@@ -23,9 +23,9 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="done">DONE</string>
-    <string name="label_three_points_card_number">Fill with number of 3 points cards:</string>
-    <string name="label_five_points_card_number">Fill with number of 5 points cards:</string>
-    <string name="label_eight_points_card_number">Fill with number of 8 points cards:</string>
+    <string name="label_three_points_card_number"># of 3 points cards:</string>
+    <string name="label_five_points_card_number"># of 5 points cards:</string>
+    <string name="label_eight_points_card_number"># of 8 points cards:</string>
     <string name="label_expedition_points">Expedition points:</string>
     <string name="label_fireworks_points">Fireworks points:</string>
     <string name="label_money_points">Money points:</string>

@@ -16,14 +16,15 @@ import com.anesoft.anno1800influencecalculator.R
 import com.anesoft.anno1800influencecalculator.databinding.FragmentPlayerScoreBinding
 import com.anesoft.anno1800influencecalculator.databinding.FragmentSelectPlayersBottomSheetListDialogBinding
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
+import com.anesoft.anno1800influencecalculator.repository.local.entity.Score
 import com.anesoft.anno1800influencecalculator.usecase.players.PlayersViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 
 
-
 @AndroidEntryPoint
-class PlayerScoreBottomSheet: BottomSheetDialogFragment() {
+class PlayerScoreBottomSheet : BottomSheetDialogFragment() {
 
     private var _binding: FragmentPlayerScoreBinding? = null
 
@@ -47,12 +48,37 @@ class PlayerScoreBottomSheet: BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
 
+        binding.confirmButton.setOnClickListener { v ->
+            val score = Score(
+                binding.threePointsET.text.toString().toInt(),
+                binding.fivePointsET.text.toString().toInt(),
+                binding.eightPointsET.text.toString().toInt(),
+                binding.expeditionePointsET.text.toString().toInt(),
+                binding.moneyPointsET.text.toString().toInt(),
+                binding.fireworksPointsET.text.toString().toInt(),
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1
+            )
+
+            val result = Gson().toJson(score)
+
+            setFragmentResult(
+                REQUEST_KEY,
+                bundleOf("data" to result)
+            )
+            findNavController().navigateUp()
+        }
     }
-    
+
 
     companion object {
 
-        val REQUEST_KEY = "SELECTED_PLAYERS_KEY"
+        val REQUEST_KEY = "PLAYER_SCORE_KEY"
 
         fun newInstance(): SelectPlayersBottomSheet =
             SelectPlayersBottomSheet().apply {

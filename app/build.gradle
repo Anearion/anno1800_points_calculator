@@ -49,6 +49,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation "androidx.fragment:fragment-ktx:1.4.0"
 
+    implementation 'com.google.code.gson:gson:2.8.9'
+
     //    local unit test
     testImplementation 'junit:junit:4.13.2'
     testImplementation "com.google.truth:truth:1.1"

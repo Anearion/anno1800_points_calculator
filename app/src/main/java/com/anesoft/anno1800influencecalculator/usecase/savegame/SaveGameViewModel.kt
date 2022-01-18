@@ -27,7 +27,6 @@ class SaveGameViewModel @Inject constructor(private val playerRepository: Player
             pList.add(playerByName)
             _playersLiveData.setValue(pList)
         }
-
     }
 
 }

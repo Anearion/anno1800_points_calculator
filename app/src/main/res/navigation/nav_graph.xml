@@ -20,6 +20,9 @@
         android:name="com.anesoft.anno1800influencecalculator.usecase.savegame.SaveGameFragment"
         android:label="Save Game"
         tools:layout="@layout/fragment_save_game" >
+        <action
+            android:id="@+id/action_navigation_save_game_to_navigation_player_score_bottomsheet"
+            app:destination="@id/navigation_player_score_bottomsheet" />
     </fragment>
 
     <fragment
@@ -46,6 +49,10 @@
     <dialog
         android:id="@+id/navigation_player_score_bottomsheet"
         android:name="com.anesoft.anno1800influencecalculator.uicomponents.PlayerScoreBottomSheet"
-        tools:layout="@layout/fragment_player_score" />
+        tools:layout="@layout/fragment_player_score" >
+        <argument
+            android:name="player_id"
+            app:argType="integer" />
+    </dialog>
 
 </navigation>
