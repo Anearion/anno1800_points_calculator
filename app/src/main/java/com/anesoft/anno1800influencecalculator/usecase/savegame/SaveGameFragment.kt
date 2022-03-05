@@ -18,23 +18,31 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import kotlin.random.Random
 
 @AndroidEntryPoint
 class SaveGameFragment : BaseFragment<FragmentSaveGameBinding, SaveGameViewModel>() {
 
     private lateinit var adapter: PlayerNameAdapter
 
-    val listener  = object : OnAdapterItemClick {
-        override fun onClick(player: Player) {
-            findNavController().navigate(R.id.navigation_player_score_bottomsheet)
-        }
-    }
+    var gameId: Int = 0
 
     override fun getViewModelClass(): Class<SaveGameViewModel> {
         return SaveGameViewModel::class.java
     }
 
+    init {
+        gameId = Random.nextInt()
+    }
+
     override fun update(savedInstanceState: Bundle?) {
+
+        val listener  = object : OnAdapterItemClick<Player> {
+            override fun onClick(player: Player) {
+                val action = SaveGameFragmentDirections.actionNavigationSaveGameToNavigationPlayerScoreBottomsheet(playerId = player.id, gameId = gameId)
+                findNavController().navigate(action)
+            }
+        }
 
         adapter = PlayerNameAdapter()
         adapter.enableOnClickListener(listener)
@@ -48,8 +56,10 @@ class SaveGameFragment : BaseFragment<FragmentSaveGameBinding, SaveGameViewModel
         }
 
         setFragmentResultListener(PlayerScoreBottomSheet.REQUEST_KEY) { key, bundle ->
-            var score = bundle["data"] as String
-            Timber.d(score)
+            var scoreJson = bundle["data"] as String
+            Timber.d(scoreJson)
+            val score = Gson().fromJson(scoreJson, Score::class.java)
+            viewModel.saveScore(score)
         }
 
         viewModel.playersLiveData.observe(
@@ -57,7 +67,12 @@ class SaveGameFragment : BaseFragment<FragmentSaveGameBinding, SaveGameViewModel
             { adapter.updateDataset(it) }
         )
 
+        viewModel.lastGameLiveData.observe(viewLifecycleOwner, {Timber.d(Gson().toJson(it))})
+
         binding.btSelectPlayer.setOnClickListener { v ->
             findNavController().navigate(R.id.navigation_select_player_bottomsheet) }
+
+        binding.deleteAllButton.setOnClickListener { v -> viewModel.deleteAll() }
+
     }
 }

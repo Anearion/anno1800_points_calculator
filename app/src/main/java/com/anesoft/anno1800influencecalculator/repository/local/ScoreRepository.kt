@@ -8,20 +8,28 @@ import javax.inject.Inject
 
 class ScoreRepository @Inject constructor(private val scoreDao: ScoreDao){
 
-    suspend fun getAllPlayers(): List<Score> {
+    suspend fun getAllScores(): List<Score> {
         return scoreDao.getAll()
     }
 
-    fun getAllPlayersFlow() : Flow<List<Score>> {
+    fun getAllScoresFlow() : Flow<List<Score>> {
         return scoreDao.getAllObservable()
     }
 
-    suspend fun savePlayer(p : Score){
+    suspend fun saveScore(p : Score){
         scoreDao.insert(p)
     }
 
     suspend fun deleteAll() {
         scoreDao.deleteAll()
+    }
+
+    suspend fun getLastGame() : Score{
+        return scoreDao.getLastGame()
+    }
+
+    suspend fun getScoreByPlayerAndGame(playerId: Int, gameId: Int): Score {
+        return scoreDao.getScoreByPlayerAndGame(playerId, gameId)
     }
 
 }

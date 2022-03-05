@@ -9,12 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.anesoft.anno1800influencecalculator.R
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
 
-class PlayerNameAdapter() :
-    RecyclerView.Adapter<PlayerNameAdapter.ViewHolder>() {
+class PlayerNameAdapter() : RecyclerView.Adapter<PlayerNameAdapter.ViewHolder>() {
 
     private var dataSet = mutableListOf<Player>()
     private var clickEnable = false
-    private lateinit var listener : OnAdapterItemClick
+    private lateinit var listener : OnAdapterItemClick<Player>
 
     fun updateDataset(list: List<Player>) {
         dataSet.clear()
@@ -27,7 +26,7 @@ class PlayerNameAdapter() :
         notifyDataSetChanged()
     }
 
-    fun enableOnClickListener(l: OnAdapterItemClick){
+    fun enableOnClickListener(l: OnAdapterItemClick<Player>){
         clickEnable = true
         listener = l
     }

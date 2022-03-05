@@ -34,4 +34,7 @@
     <string name="label_third_obj_points">Third objective points:</string>
     <string name="label_fourth_obj_points">Fourth objective points:</string>
     <string name="label_fifth_obj_points">Fifth objective points:</string>
+    <string name="date">Date: %1$s</string>
+    <string name="number_of_players">Number of players: %1$d</string>
+    <string name="winner">Winner: %1$s</string>
 </resources>

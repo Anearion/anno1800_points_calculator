@@ -5,6 +5,14 @@
     android:padding="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/deleteAllButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Delete All" />
+
     <TextView
         android:id="@+id/tvSelectPlayer"
         android:layout_width="wrap_content"

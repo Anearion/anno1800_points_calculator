@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.anesoft.anno1800influencecalculator.repository.local.AppDatabase
 import com.anesoft.anno1800influencecalculator.repository.local.dao.PlayerDao
+import com.anesoft.anno1800influencecalculator.repository.local.dao.ScoreDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,6 +19,11 @@ class DatabaseModule {
     @Provides
     fun providePlayerDao(appAppDatabase: AppDatabase): PlayerDao {
         return appAppDatabase.playerDao()
+    }
+
+    @Provides
+    fun provideScoreDao(appAppDatabase: AppDatabase): ScoreDao {
+        return appAppDatabase.scoreDao()
     }
 
     @Provides

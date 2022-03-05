@@ -7,7 +7,7 @@ import com.anesoft.anno1800influencecalculator.repository.local.dao.ScoreDao
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Score
 
-@Database(entities = [Player::class, Score::class], version = 3)
+@Database(entities = [Player::class, Score::class], version = 4)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun playerDao() : PlayerDao

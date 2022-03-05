@@ -11,13 +11,13 @@ interface ScoreDao {
     @Query("SELECT * FROM Score")
     suspend fun getAll() : List<Score>
 
-    @Query("SELECT * FROM Score")
+    @Query("SELECT * FROM Score GROUP BY gameId")
     fun getAllObservable() : Flow<List<Score>>
 
     @Query("SELECT * FROM Score WHERE Score.gameId = :gameId")
     fun getScoreHistoryForGame(gameId: Int) : Flow<List<Score>>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(score: Score)
 
     @Delete
@@ -25,5 +25,11 @@ interface ScoreDao {
 
     @Query("DELETE FROM Score")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM Score ORDER BY Score.gameId DESC")
+    suspend fun getLastGame() : Score
+
+    @Query("SELECT * FROM Score WHERE Score.playerId = :playerId AND Score.gameId = :gameId")
+    suspend fun getScoreByPlayerAndGame(playerId: Int, gameId: Int) : Score
 
 }

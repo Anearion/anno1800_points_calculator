@@ -31,6 +31,7 @@
             android:hint="@string/label_three_points_card_number"
             android:inputType="number"
             android:singleLine="true"
+            android:text="0"
             android:textColor="@color/dark_gray" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,6 +51,7 @@
             android:hint="@string/label_five_points_card_number"
             android:inputType="number"
             android:singleLine="true"
+            android:text="0"
             android:textColor="@color/dark_gray" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,6 +71,7 @@
             android:hint="@string/label_eight_points_card_number"
             android:inputType="number"
             android:singleLine="true"
+            android:text="0"
             android:textColor="@color/dark_gray" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,6 +91,7 @@
             android:hint="@string/label_expedition_points"
             android:inputType="number"
             android:singleLine="true"
+            android:text="0"
             android:textColor="@color/dark_gray" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,6 +111,7 @@
             android:hint="@string/label_fireworks_points"
             android:inputType="number"
             android:singleLine="true"
+            android:text="0"
             android:textColor="@color/dark_gray" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,6 +131,7 @@
             android:hint="@string/label_money_points"
             android:inputType="number"
             android:singleLine="true"
+            android:text="0"
             android:textColor="@color/dark_gray" />
     </com.google.android.material.textfield.TextInputLayout>
 

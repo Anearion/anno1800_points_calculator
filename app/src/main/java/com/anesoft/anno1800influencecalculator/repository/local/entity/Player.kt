@@ -10,6 +10,6 @@ import androidx.room.PrimaryKey
 data class Player(
     @ColumnInfo(name = "first_name") val name: String?,
     @ColumnInfo(name = "gender") val gender: String?
-) : BaseEntity() {
+) : BaseEntityPrimaryKey() {
 
 }
