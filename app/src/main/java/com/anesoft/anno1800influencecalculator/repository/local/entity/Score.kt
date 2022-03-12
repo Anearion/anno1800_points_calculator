@@ -21,5 +21,18 @@ data class Score(
     @ColumnInfo(name = "playerId") val playerId: Int = 0
 ) : BaseEntity() {
 
+    fun getPoints() : Int {
+        return threePointsCard.times(3)
+            .plus(fivePointsCard.times(5))
+            .plus(eightPointsCard.times(8))
+            .plus(expeditionsPoints)
+            .plus(moneyPoints)
+            .plus(fireworksPoints)
+            .plus(firstObjPoints)
+            .plus(secondObjPoints)
+            .plus(thirdObjPoints)
+            .plus(fourthObjPoints)
+            .plus(fifthObjPoints)
+    }
 
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewbinding.BuildConfig
 import androidx.viewbinding.ViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.reflect.ParameterizedType
@@ -16,11 +17,11 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>() : Fragment()
 
     open var useSharedViewModel: Boolean = false
 
-    private var _binding : VB? = null
-    val binding :VB get() = _binding!!
+    private var _binding: VB? = null
+    val binding: VB get() = _binding!!
 
-    private var _viewModel : VM? = null
-    val viewModel : VM get() = _viewModel!!
+    private var _viewModel: VM? = null
+    val viewModel: VM get() = _viewModel!!
     protected abstract fun getViewModelClass(): Class<VM>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,9 +39,14 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>() : Fragment()
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         setupViewBinding(container)
-        Toast.makeText(context, this.javaClass.name, Toast.LENGTH_SHORT).show()
+        if (BuildConfig.DEBUG)
+            Toast.makeText(context, this.javaClass.name, Toast.LENGTH_SHORT).show()
         return _binding!!.root
     }
 

@@ -7,6 +7,7 @@ import androidx.room.Query
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Score
 import kotlinx.coroutines.flow.Flow
+import java.sql.RowId
 
 @Dao
 interface PlayerDao {
@@ -16,6 +17,9 @@ interface PlayerDao {
 
     @Query("SELECT * FROM Player WHERE Player.first_name = :name")
     suspend fun getByName(name: String) : Player
+
+    @Query("SELECT * FROM Player WHERE Player.id = :id")
+    suspend fun find(id: Int) : Player
 
     @Query("SELECT * FROM Player")
     fun getAllObservable() : Flow<List<Player>>

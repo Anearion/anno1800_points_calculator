@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.anesoft.anno1800influencecalculator.R
+import com.anesoft.anno1800influencecalculator.model.Game
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Score
 import java.time.Instant
 import java.time.ZoneId
@@ -16,22 +17,22 @@ import java.util.*
 
 class GameRecapAdapter() : RecyclerView.Adapter<GameRecapAdapter.ViewHolder>() {
 
-    private var dataSet = mutableListOf<Score>()
+    private var dataSet = mutableListOf<Game>()
     private var clickEnable = false
-    private lateinit var listener : OnAdapterItemClick<Score>
+    private lateinit var listener : OnAdapterItemClick<Game>
 
-    fun updateDataset(list: List<Score>) {
+    fun updateDataset(list: List<Game>) {
         dataSet.clear()
         dataSet.addAll(list)
         notifyDataSetChanged()
     }
 
-    fun updateDataset(p: Score) {
+    fun updateDataset(p: Game) {
         dataSet.add(p)
         notifyDataSetChanged()
     }
 
-    fun enableOnClickListener(l: OnAdapterItemClick<Score>){
+    fun enableOnClickListener(l: OnAdapterItemClick<Game>){
         clickEnable = true
         listener = l
     }
@@ -53,14 +54,22 @@ class GameRecapAdapter() : RecyclerView.Adapter<GameRecapAdapter.ViewHolder>() {
 
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val dateTime = dataSet[position].created
+
+        val context = viewHolder.date.context
+        val game = dataSet[position]
+
+        val dateTime = game.scoreList[0].created
 
         val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).withLocale( Locale.ITALIAN ).withZone(ZoneId.systemDefault())
         val instant = Instant.ofEpochMilli(dateTime)
         val output = formatter.format(instant)
-        viewHolder.date.text = viewHolder.date.context.getString(R.string.date, output)
+        viewHolder.date.text = context.getString(R.string.date, output)
+
+        viewHolder.numberOfPlayer.text = context.getString(R.string.number_of_players, game.numberOfPlayers)
+        viewHolder.winner.text = context.getString(R.string.winner, game.winner)
+
         if(clickEnable)
-            viewHolder.row.setOnClickListener { listener.onClick(dataSet[position]) }
+            viewHolder.row.setOnClickListener { listener.onClick(game) }
     }
 
     override fun getItemCount() = dataSet.size

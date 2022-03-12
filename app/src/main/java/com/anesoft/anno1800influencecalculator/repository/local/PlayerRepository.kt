@@ -15,6 +15,10 @@ class PlayerRepository @Inject constructor(private val playerDao: PlayerDao){
         return playerDao.getByName(name)
     }
 
+    suspend fun find(id: Int) : Player {
+        return playerDao.find(id)
+    }
+
     fun getAllPlayersFlow() : Flow<List<Player>> {
         return playerDao.getAllObservable()
     }
