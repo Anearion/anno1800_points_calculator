@@ -23,8 +23,8 @@ class PlayerRepository @Inject constructor(private val playerDao: PlayerDao){
         return playerDao.getAllObservable()
     }
 
-    suspend fun savePlayer(p : Player){
-        playerDao.insertAll(p)
+    suspend fun savePlayer(p : Player): Long {
+        return playerDao.insert(p)
     }
 
     suspend fun deleteAll() {

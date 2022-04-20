@@ -37,4 +37,6 @@
     <string name="date">Date: %1$s</string>
     <string name="number_of_players">Number of players: %1$d</string>
     <string name="winner">Winner: %1$s</string>
+    <string name="username">Username %1$s:</string>
+    <string name="games_list">Games List</string>
 </resources>

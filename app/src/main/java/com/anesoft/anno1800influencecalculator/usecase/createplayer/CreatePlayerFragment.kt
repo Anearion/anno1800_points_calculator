@@ -1,10 +1,14 @@
 package com.anesoft.anno1800influencecalculator.usecase.createplayer
 
+import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
 import android.widget.RadioGroup
 import com.anesoft.anno1800influencecalculator.base.BaseFragment
 import com.anesoft.anno1800influencecalculator.databinding.FragmentCreatePlayerBinding
 import android.widget.RadioButton
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.anesoft.anno1800influencecalculator.R
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
 import com.anesoft.anno1800influencecalculator.usecase.players.PlayersViewModel
@@ -33,6 +37,27 @@ class CreatePlayerFragment : BaseFragment<FragmentCreatePlayerBinding, PlayersVi
             }
         })
 
+        viewModel.savePlayerLiveData.observe(viewLifecycleOwner) { t ->
+
+            t.error?.let {
+                if (t.error is SQLiteConstraintException)
+                    Toast.makeText(context, "Error: Already Inserted", Toast.LENGTH_SHORT)
+                        .show()
+                else
+                    Toast.makeText(
+                        context,
+                        "Error: " + t.error.localizedMessage,
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+            }
+
+            t.playerId?.let {
+                Toast.makeText(context, "Insert done", Toast.LENGTH_SHORT).show()
+                findNavController().navigateUp()
+            }
+
+        }
 
         binding.btSave.setOnClickListener {
             run {

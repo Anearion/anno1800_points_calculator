@@ -10,24 +10,38 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import timber.log.Timber
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
-class PlayersViewModel @Inject constructor(private val playerRepository: PlayerRepository) : BaseViewModel() {
+class PlayersViewModel @Inject constructor(private val playerRepository: PlayerRepository) :
+    BaseViewModel() {
+
+    data class ViewState(val error: Exception?, val playerList: List<Player>?, val playerId : Long?)
 
 
-    private var _playersLiveData : MutableLiveData<List<Player>> = MutableLiveData()
-    val playersLiveData : LiveData<List<Player>> get() = _playersLiveData
+    private var _playersLiveData: MutableLiveData<List<Player>> = MutableLiveData()
+    val playersLiveData: LiveData<List<Player>> get() = _playersLiveData
+
+    private var _savePlayerLiveData : MutableLiveData<ViewState> = MutableLiveData()
+    val savePlayerLiveData : LiveData<ViewState> get() = _savePlayerLiveData
 
     var selectedPlayers = mutableListOf<String>()
 
     fun savePlayer(p: Player) {
         viewModelScope.launch {
-            playerRepository.savePlayer(p)
+            try {
+                val playerId = playerRepository.savePlayer(p)
+                _savePlayerLiveData.setValue(ViewState(null, null, playerId))
+            } catch (ex : Exception){
+                Timber.e(ex)
+                _savePlayerLiveData.setValue(ViewState(ex, null, null))
+            }
         }
     }
 
-    fun getAllPlayers(){
+    fun getAllPlayers() {
         viewModelScope.launch {
             val allPlayers = playerRepository.getAllPlayers()
             _playersLiveData.setValue(allPlayers)
@@ -40,7 +54,7 @@ class PlayersViewModel @Inject constructor(private val playerRepository: PlayerR
         }
     }
 
-    fun getAllPlayersObservable(){
+    fun getAllPlayersObservable() {
         viewModelScope.launch {
             playerRepository.getAllPlayersFlow().collect {
                 _playersLiveData.setValue(it)

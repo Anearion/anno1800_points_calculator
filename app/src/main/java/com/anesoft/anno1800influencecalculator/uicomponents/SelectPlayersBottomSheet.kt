@@ -42,14 +42,13 @@ class SelectPlayersBottomSheet : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.getAllPlayers()
         viewModel.playersLiveData.observe(
-            viewLifecycleOwner,
-            { t ->
-                run {
-                    t.forEach { player -> addCheckBox(player) }
-                }
-                binding.btDone.isEnabled = true
+            viewLifecycleOwner
+        ) { t ->
+            run {
+                t.forEach { player -> addCheckBox(player) }
             }
-        )
+            binding.btDone.isEnabled = true
+        }
 
         binding.btDone.setOnClickListener { v ->
 

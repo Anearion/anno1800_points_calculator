@@ -1,9 +1,6 @@
 package com.anesoft.anno1800influencecalculator.repository.local.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Score
 import kotlinx.coroutines.flow.Flow
@@ -29,6 +26,9 @@ interface PlayerDao {
 
     @Insert
     suspend fun insertAll(vararg players:Player)
+
+    @Insert
+    suspend fun insert(players:Player) : Long
 
     @Delete
     fun delete(player: Player)
