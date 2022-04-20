@@ -11,6 +11,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="4dp"
+        android:visibility="gone"
         android:text="clear db" />
 
     <androidx.recyclerview.widget.RecyclerView
