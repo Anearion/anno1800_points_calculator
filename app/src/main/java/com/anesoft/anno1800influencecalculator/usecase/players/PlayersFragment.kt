@@ -33,9 +33,9 @@ class PlayersFragment : BaseFragment<FragmentPlayersBinding, PlayersViewModel>()
             findNavController().navigate(R.id.navigation_create_player)
         }
 
-        viewModel.playersLiveData.observe(viewLifecycleOwner, {
+        viewModel.playersLiveData.observe(viewLifecycleOwner) {
             populatePlayerRecyclerView(it)
-        })
+        }
 
         viewModel.getAllPlayersObservable()
 
