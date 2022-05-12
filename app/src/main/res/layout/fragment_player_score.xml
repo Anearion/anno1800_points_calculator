@@ -7,133 +7,44 @@
     android:padding="8dp">
 
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/verticalGuideline"
+    <SeekBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:clickable="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/progressText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/threePointsContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/small"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/threePointsET"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_three_points_card_number"
-            android:inputType="number"
-            android:singleLine="true"
-            android:text="0"
-            android:textColor="@color/dark_gray" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fivePointsContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/small"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/verticalGuideline">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/fivePointsET"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_five_points_card_number"
-            android:inputType="number"
-            android:singleLine="true"
-            android:text="0"
-            android:textColor="@color/dark_gray" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/progress"
+        style="@style/BigText"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/eightPointsContainer"
+        android:id="@+id/container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/small"
-        app:layout_constraintTop_toBottomOf="@+id/threePointsContainer"
+        app:layout_constraintTop_toBottomOf="@+id/progressText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/eightPointsET"
+            android:id="@+id/pointsEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/label_eight_points_card_number"
             android:inputType="number"
             android:singleLine="true"
-            android:text="0"
+            android:focusedByDefault="true"
             android:textColor="@color/dark_gray" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/expeditionPointsContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/small"
-        app:layout_constraintTop_toBottomOf="@+id/fivePointsContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/verticalGuideline">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/expeditionePointsET"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_expedition_points"
-            android:inputType="number"
-            android:singleLine="true"
-            android:text="0"
-            android:textColor="@color/dark_gray" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fireworksPointsContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/small"
-        app:layout_constraintTop_toBottomOf="@+id/eightPointsContainer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/fireworksPointsET"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_fireworks_points"
-            android:inputType="number"
-            android:singleLine="true"
-            android:text="0"
-            android:textColor="@color/dark_gray" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/moneyPointsContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/small"
-        app:layout_constraintTop_toBottomOf="@+id/expeditionPointsContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/verticalGuideline">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/moneyPointsET"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_money_points"
-            android:inputType="number"
-            android:singleLine="true"
-            android:text="0"
-            android:textColor="@color/dark_gray" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/confirm_button"
@@ -141,7 +52,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fireworksPointsContainer"
+        app:layout_constraintTop_toBottomOf="@id/container"
+        android:layout_marginTop="@dimen/large"
         android:text="@string/done" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

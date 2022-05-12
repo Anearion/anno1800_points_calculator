@@ -1,4 +1,4 @@
-package com.anesoft.anno1800influencecalculator.usecase.players
+package com.anesoft.anno1800influencecalculator.states.players
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,7 +7,6 @@ import com.anesoft.anno1800influencecalculator.base.BaseViewModel
 import com.anesoft.anno1800influencecalculator.repository.local.PlayerRepository
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber

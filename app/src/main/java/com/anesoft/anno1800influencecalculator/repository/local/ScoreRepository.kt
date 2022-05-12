@@ -32,4 +32,8 @@ class ScoreRepository @Inject constructor(private val scoreDao: ScoreDao){
         return scoreDao.getScoreByPlayerAndGame(playerId, gameId)
     }
 
+    suspend fun getScoreListByGameId(gameId: Int): List<Score> {
+        return scoreDao.getScoreListByGameId(gameId)
+    }
+
 }

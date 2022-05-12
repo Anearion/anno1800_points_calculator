@@ -1,4 +1,4 @@
-package com.anesoft.anno1800influencecalculator.usecase.home
+package com.anesoft.anno1800influencecalculator.states.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

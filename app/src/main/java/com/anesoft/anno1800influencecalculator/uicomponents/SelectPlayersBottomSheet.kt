@@ -1,6 +1,5 @@
 package com.anesoft.anno1800influencecalculator.uicomponents
 
-import android.app.Dialog
 import android.os.Bundle
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import android.view.LayoutInflater
@@ -13,7 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.anesoft.anno1800influencecalculator.databinding.FragmentSelectPlayersBottomSheetListDialogBinding
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
-import com.anesoft.anno1800influencecalculator.usecase.players.PlayersViewModel
+import com.anesoft.anno1800influencecalculator.states.players.PlayersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

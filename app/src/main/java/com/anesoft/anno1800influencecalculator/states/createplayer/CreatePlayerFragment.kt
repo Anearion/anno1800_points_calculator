@@ -1,4 +1,4 @@
-package com.anesoft.anno1800influencecalculator.usecase.createplayer
+package com.anesoft.anno1800influencecalculator.states.createplayer
 
 import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
@@ -7,11 +7,10 @@ import com.anesoft.anno1800influencecalculator.base.BaseFragment
 import com.anesoft.anno1800influencecalculator.databinding.FragmentCreatePlayerBinding
 import android.widget.RadioButton
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.anesoft.anno1800influencecalculator.R
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
-import com.anesoft.anno1800influencecalculator.usecase.players.PlayersViewModel
+import com.anesoft.anno1800influencecalculator.states.players.PlayersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

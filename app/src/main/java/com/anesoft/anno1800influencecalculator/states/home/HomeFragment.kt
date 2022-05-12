@@ -1,4 +1,4 @@
-package com.anesoft.anno1800influencecalculator.usecase.home
+package com.anesoft.anno1800influencecalculator.states.home
 
 import android.os.Bundle
 import android.view.View
@@ -9,6 +9,7 @@ import com.anesoft.anno1800influencecalculator.base.BaseFragment
 import com.anesoft.anno1800influencecalculator.databinding.FragmentHomeBinding
 import com.anesoft.anno1800influencecalculator.model.Game
 import com.anesoft.anno1800influencecalculator.uicomponents.adapters.GameRecapAdapter
+import com.anesoft.anno1800influencecalculator.uicomponents.adapters.OnAdapterItemClick
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,8 +25,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
         binding.gameList.layoutManager = LinearLayoutManager(context)
 
+        val listener  = object : OnAdapterItemClick<Game> {
+            override fun onClick(game: Game) {
+                val action = HomeFragmentDirections.actionHomeToNavigationFragmentGame(gameId = game.scoreList[0].gameId)
+                findNavController().navigate(action)
+            }
+        }
+        adapter.enableOnClickListener(listener)
+
         binding.fabCreatePlayer.setOnClickListener {
-            findNavController().navigate(R.id.navigation_save_game)
+            val actionHomeToNavigationSaveGame =
+                HomeFragmentDirections.actionHomeToNavigationSaveGame()
+            findNavController().navigate(actionHomeToNavigationSaveGame)
         }
 
 

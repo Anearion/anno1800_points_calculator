@@ -1,4 +1,4 @@
-package com.anesoft.anno1800influencecalculator.usecase.players
+package com.anesoft.anno1800influencecalculator.states.players
 
 import android.os.Bundle
 import com.anesoft.anno1800influencecalculator.base.BaseFragment

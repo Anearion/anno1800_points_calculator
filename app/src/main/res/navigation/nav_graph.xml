@@ -7,29 +7,38 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.anesoft.anno1800influencecalculator.usecase.home.HomeFragment"
+        android:name="com.anesoft.anno1800influencecalculator.states.home.HomeFragment"
         android:label="Games"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_home_to_navigation_save_game"
-            app:destination="@id/navigation_save_game" />
+            app:destination="@id/save_game_activity" />
+        <action
+            android:id="@+id/action_home_to_navigation_fragment_game"
+            app:destination="@id/navigation_fragment_game" />
     </fragment>
 
+    <activity
+        android:id="@+id/save_game_activity"
+        android:name="com.anesoft.anno1800influencecalculator.states.savegame.SaveGameActivity"
+        android:label="New Game"
+        tools:layout="@layout/activity_save_game">
+
+    </activity>
+
     <fragment
-        android:id="@+id/navigation_save_game"
-        android:name="com.anesoft.anno1800influencecalculator.usecase.savegame.SaveGameFragment"
-        android:label="Save Game"
-        tools:layout="@layout/fragment_save_game" >
-        <action
-            android:id="@+id/action_navigation_save_game_to_navigation_player_score_bottomsheet"
-            app:destination="@id/navigation_player_score_bottomsheet"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"></action>
+        android:id="@+id/navigation_fragment_game"
+        android:name="com.anesoft.anno1800influencecalculator.states.games.GameFragment"
+        android:label="Game Detail"
+        tools:layout="@layout/fragment_game">
+    <argument
+        android:name="game_id"
+        app:argType="integer" />
     </fragment>
 
     <fragment
         android:id="@+id/players"
-        android:name="com.anesoft.anno1800influencecalculator.usecase.players.PlayersFragment"
+        android:name="com.anesoft.anno1800influencecalculator.states.players.PlayersFragment"
         android:label="Players"
         tools:layout="@layout/fragment_players" >
         <action
@@ -39,18 +48,13 @@
 
     <fragment
         android:id="@+id/navigation_create_player"
-        android:name="com.anesoft.anno1800influencecalculator.usecase.createplayer.CreatePlayerFragment"
+        android:name="com.anesoft.anno1800influencecalculator.states.createplayer.CreatePlayerFragment"
         android:label="Create Player"
         tools:layout="@layout/fragment_create_player" />
 
-    <dialog
-        android:id="@+id/navigation_select_player_bottomsheet"
-        android:name="com.anesoft.anno1800influencecalculator.uicomponents.SelectPlayersBottomSheet"
-        tools:layout="@layout/fragment_select_players_bottom_sheet_list_dialog" />
-
     <fragment
         android:id="@+id/navigation_player_score_bottomsheet"
-        android:name="com.anesoft.anno1800influencecalculator.uicomponents.PlayerScoreBottomSheet"
+        android:name="com.anesoft.anno1800influencecalculator.states.savegame.PlayerScoreFragment"
         tools:layout="@layout/fragment_player_score" >
         <argument
             android:name="player_id"

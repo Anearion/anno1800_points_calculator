@@ -32,4 +32,7 @@ interface ScoreDao {
     @Query("SELECT * FROM Score WHERE Score.playerId = :playerId AND Score.gameId = :gameId")
     suspend fun getScoreByPlayerAndGame(playerId: Int, gameId: Int) : Score
 
+    @Query("SELECT * FROM Score WHERE Score.gameId = :gameId")
+    suspend fun getScoreListByGameId(gameId: Int) : List<Score>
+
 }
