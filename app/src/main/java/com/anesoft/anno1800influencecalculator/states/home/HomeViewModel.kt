@@ -26,7 +26,8 @@ class HomeViewModel @Inject constructor(
         return scoreRepository.getAllScoresFlow()
     }
 
-    init {
+    override fun onResume() {
+        super.onResume()
         getScores()
     }
 

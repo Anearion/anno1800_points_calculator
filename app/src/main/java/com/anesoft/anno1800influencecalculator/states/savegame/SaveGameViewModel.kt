@@ -11,6 +11,7 @@ import com.anesoft.anno1800influencecalculator.repository.local.entity.Score
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.random.Random
 
 @HiltViewModel
 class SaveGameViewModel @Inject constructor(
@@ -25,27 +26,47 @@ class SaveGameViewModel @Inject constructor(
 
     data class PlayerWithScore(
         val player: Player,
-        val score: Int = 0
+        var score: Int = 0
     )
+
+    var gameId: Int = 0
+
+    init {
+        gameId = Random.nextInt()
+    }
 
     var currentSaveGameStep  = SaveGameUseCase(SaveGameUseCase.SaveGameStep.THREE_POINTS, 0)
     private val saveGameStepList = mutableSetOf<SaveGameUseCase>()
 
-    private val _state = MutableLiveData<SaveGameViewState>()
-    val state : LiveData<SaveGameViewState> get() = _state
+    private var _playersWithScoreLiveData: MutableLiveData<List<PlayerWithScore>> = MutableLiveData()
+    val playersWithScoreLiveData: LiveData<List<PlayerWithScore>> get() = _playersWithScoreLiveData
 
-    init {
-        _state.value = SaveGameViewState(arrayListOf(), Score())
-    }
-
-    private var _playersLiveData: MutableLiveData<List<PlayerWithScore>> = MutableLiveData()
-    val playersLiveData: LiveData<List<PlayerWithScore>> get() = _playersLiveData
-
-    private var _lastGameLiveData: MutableLiveData<Score> = MutableLiveData()
-    val lastGameLiveData: LiveData<Score> get() = _lastGameLiveData
+    private var _playersLiveData: MutableLiveData<List<Player>> = MutableLiveData()
+    val playersLiveData: LiveData<List<Player>> get() = _playersLiveData
 
     private var _scoreByPlayerAndGameLiveData : MutableLiveData<Score> = MutableLiveData()
     val scoreByPlayerAndGameLiveData : LiveData<Score> get() = _scoreByPlayerAndGameLiveData
+
+    fun updatePlayers() {
+        viewModelScope.launch {
+            val scoreByGame = scoreRepository.getScoreListByGameId(gameId)
+            var pList = mutableListOf<PlayerWithScore>()
+
+
+            scoreByGame.let { scores->
+                scores.forEach { score->
+                    val playerList = _playersLiveData.value
+                    val player = playerList?.find { it.id == score.playerId }
+                    player.let { pList.add(PlayerWithScore(it!!, score.getPoints())) }
+                }
+                _playersWithScoreLiveData.value = pList
+            }
+        }
+    }
+
+    fun getSaveGameStepSet() : Set<SaveGameUseCase> {
+        return saveGameStepList
+    }
 
     fun nextStep(value: Int){
         if(saveGameStepList.contains(currentSaveGameStep)){
@@ -64,29 +85,21 @@ class SaveGameViewModel @Inject constructor(
         currentSaveGameStep = saveGameStepList.elementAt(saveGameStepList.indexOf(currentSaveGameStep.previousStep()))
     }
 
-    fun getPlayerByName(name: String) {
+    fun getPlayerByName(names: List<String>) {
         viewModelScope.launch {
-            val playerByName = playerRepository.getPlayerByName(name)
-            var pList = mutableListOf<PlayerWithScore>()
-            if (_playersLiveData.value != null) {
-                pList = _playersLiveData.value!!.toMutableList()
+            var pList = mutableListOf<Player>()
+            names.forEach {
+                val playerByName = playerRepository.getPlayerByName(it)
+                pList.add(playerByName)
             }
-
-            pList.add(PlayerWithScore(playerByName))
             _playersLiveData.setValue(pList)
-        }
-    }
-
-    fun getLastGame() {
-        viewModelScope.launch {
-            val lastGame = scoreRepository.getLastGame()
-            _lastGameLiveData.value = lastGame
         }
     }
 
     fun saveScore(score: Score){
         viewModelScope.launch {
             scoreRepository.saveScore(score)
+            updatePlayers()
         }
     }
 

@@ -12,7 +12,7 @@ import androidx.viewbinding.ViewBinding
 import java.lang.reflect.ParameterizedType
 
 
-abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>() : Fragment() {
+abstract class BaseViewBindingFragment<VB : ViewBinding, VM : BaseViewModel>() : Fragment() {
 
     open var useSharedViewModel: Boolean = false
 
@@ -32,6 +32,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>() : Fragment()
     override fun onResume() {
         super.onResume()
         viewModel.onResume()
+        onResumeUpdate()
     }
 
     private fun setupViewModel() {
@@ -69,10 +70,11 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>() : Fragment()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        update(savedInstanceState)
+        onViewCreation(savedInstanceState)
     }
 
-    abstract fun update(savedInstanceState: Bundle?)
+    abstract fun onViewCreation(savedInstanceState: Bundle?)
+    open fun onResumeUpdate(){}
 
     override fun onDestroyView() {
         _binding = null

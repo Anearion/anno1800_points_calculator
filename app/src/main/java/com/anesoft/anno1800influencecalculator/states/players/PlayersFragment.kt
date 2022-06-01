@@ -4,14 +4,14 @@ import android.os.Bundle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anesoft.anno1800influencecalculator.R
-import com.anesoft.anno1800influencecalculator.base.BaseFragment
+import com.anesoft.anno1800influencecalculator.base.BaseViewBindingFragment
 import com.anesoft.anno1800influencecalculator.databinding.FragmentPlayersBinding
 import com.anesoft.anno1800influencecalculator.repository.local.entity.Player
 import com.anesoft.anno1800influencecalculator.uicomponents.adapters.PlayerNameAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PlayersFragment : BaseFragment<FragmentPlayersBinding, PlayersViewModel>() {
+class PlayersFragment : BaseViewBindingFragment<FragmentPlayersBinding, PlayersViewModel>() {
 
     private var adapter = PlayerNameAdapter()
 
@@ -20,7 +20,7 @@ class PlayersFragment : BaseFragment<FragmentPlayersBinding, PlayersViewModel>()
         return PlayersViewModel::class.java
     }
 
-    override fun update(savedInstanceState: Bundle?) {
+    override fun onViewCreation(savedInstanceState: Bundle?) {
 
         binding.rvPlayers.layoutManager = LinearLayoutManager(context)
 

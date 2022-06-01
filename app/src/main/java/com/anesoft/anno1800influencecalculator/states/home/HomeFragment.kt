@@ -4,8 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.anesoft.anno1800influencecalculator.R
-import com.anesoft.anno1800influencecalculator.base.BaseFragment
+import com.anesoft.anno1800influencecalculator.base.BaseViewBindingFragment
 import com.anesoft.anno1800influencecalculator.databinding.FragmentHomeBinding
 import com.anesoft.anno1800influencecalculator.model.Game
 import com.anesoft.anno1800influencecalculator.uicomponents.adapters.GameRecapAdapter
@@ -13,7 +12,7 @@ import com.anesoft.anno1800influencecalculator.uicomponents.adapters.OnAdapterIt
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
+class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding, HomeViewModel>() {
 
     private var adapter = GameRecapAdapter()
 
@@ -21,7 +20,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         return HomeViewModel::class.java
     }
 
-    override fun update(savedInstanceState: Bundle?) {
+    override fun onViewCreation(savedInstanceState: Bundle?) {
 
         binding.gameList.layoutManager = LinearLayoutManager(context)
 

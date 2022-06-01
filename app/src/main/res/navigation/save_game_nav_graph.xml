@@ -34,6 +34,11 @@
         <action
             android:id="@+id/action_navigation_player_score_fragment_self"
             app:destination="@id/navigation_player_score_fragment" />
+        <action
+            android:id="@+id/action_navigation_player_score_fragment_to_navigation_save_game"
+            app:destination="@id/navigation_save_game"
+            app:popUpTo="@id/save_game_nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <dialog

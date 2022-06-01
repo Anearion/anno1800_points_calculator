@@ -3,7 +3,7 @@ package com.anesoft.anno1800influencecalculator.states.createplayer
 import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
 import android.widget.RadioGroup
-import com.anesoft.anno1800influencecalculator.base.BaseFragment
+import com.anesoft.anno1800influencecalculator.base.BaseViewBindingFragment
 import com.anesoft.anno1800influencecalculator.databinding.FragmentCreatePlayerBinding
 import android.widget.RadioButton
 import android.widget.Toast
@@ -14,7 +14,7 @@ import com.anesoft.anno1800influencecalculator.states.players.PlayersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CreatePlayerFragment : BaseFragment<FragmentCreatePlayerBinding, PlayersViewModel>() {
+class CreatePlayerFragment : BaseViewBindingFragment<FragmentCreatePlayerBinding, PlayersViewModel>() {
 
     private var gender = String()
 
@@ -22,7 +22,7 @@ class CreatePlayerFragment : BaseFragment<FragmentCreatePlayerBinding, PlayersVi
         return PlayersViewModel::class.java
     }
 
-    override fun update(savedInstanceState: Bundle?) {
+    override fun onViewCreation(savedInstanceState: Bundle?) {
         gender = requireContext().getString(R.string.male)
         binding.rbMale.isChecked = true
 

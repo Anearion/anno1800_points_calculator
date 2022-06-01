@@ -23,6 +23,7 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="done">DONE</string>
+    <string name="next">Next</string>
     <string name="label_three_points_card_number"># of 3 points cards:</string>
     <string name="label_five_points_card_number"># of 5 points cards:</string>
     <string name="label_eight_points_card_number"># of 8 points cards:</string>
@@ -39,4 +40,8 @@
     <string name="winner">Winner: %1$s</string>
     <string name="username">Username %1$s:</string>
     <string name="games_list">Games List</string>
+    <string name="label_composite_points_cards">%1$s Points Cards</string>
+    <string name="label_three">Three</string>
+    <string name="label_five">Five</string>
+    <string name="label_eight">Eight</string>
 </resources>
